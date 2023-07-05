@@ -1,7 +1,19 @@
 {% extends 'base/template.html' %}
 {% load static %}
 {% block content %}
-
-	<h3>Index.html</h3>
-	
+<form id="payment-form" method="POST">
+	{% csrf_token %}
+	<p>you will be charged $13</p>
+	<div id="link-authentication-element">
+	 <!--Stripe.js injects the Link Authentication Element-->
+	</div>
+	<div id="payment-element">
+	 <!--Stripe.js injects the Payment Element-->
+	</div>
+	<button id="submit">
+	<div class="spinner hidden" id="spinner"></div>
+	<span id="button-text">Donate Now</span>
+	</button>
+	<div id="payment-message" class="hidden"></div>
+</form>
 {% endblock content %}
